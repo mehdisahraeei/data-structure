@@ -1,0 +1,3 @@
+origin:
+
+https://github.com/mihaelacr/Data-structures/blob/master/Queue.java1
