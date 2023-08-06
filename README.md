@@ -7,7 +7,7 @@
 ### blockchain:
 - simple sample
 - mid sample
-
+------------------------------------------------------------------------------------------------
 ![banner](https://raw.githubusercontent.com/mehdisahraeei/data-structure/master/Linear%20structures/dendo.png)
 
   
