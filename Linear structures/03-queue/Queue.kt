@@ -10,39 +10,40 @@ class Queue {
         q = arrayOf<String>()
     }
 
-    //getting size
+    // Getting the size of the queue
     private fun size(): Int {
         return count
     }
 
+    // Check if the queue is empty
     fun isEmpty(): Boolean {
         return size() == 0
     }
 
-    //pushing
+    // Pushing a value to the queue
     fun push(value: String) {
-        if (size() == q.size) {
+        if (size() == q.size) {   // If the array is full, resize it to accommodate more elements
             end = q.size
-            resize(2 * q.size)
+            resize(2 * q.size)    // Double the size of the array
         }
         if (isEmpty())
-            start = end
+            start = end          // Set the start to the current end if the queue was empty
         q[end] = value
-        end = (end + 1) % q.size
+        end = (end + 1) % q.size // Update the end index with wrapping around the array
         count++
     }
 
-    //poping the first value of Queue
+    // Popping the first value from the queue
     fun pop(): String {
-        assert(start >= 0)
+        assert(start >= 0)        // Ensure that the queue is not empty
         val item = q[start]
         count--
         q[start] = null
-        start = (start + 1) % q.size
+        start = (start + 1) % q.size // Move the start index to the next element with wrapping
         if (count == q.size / 4) {
             println("resize")
-            resize(q.size / 2)
-            end = q.size / 2
+            resize(q.size / 2)   // Shrink the array if the number of elements is 1/4 of its capacity
+            end = q.size / 2     // Reset the end index after resizing
         }
         return item
     }
@@ -64,10 +65,10 @@ class Queue {
             }
         }
         start = 0
-        q = new_array.requireNoNulls()
+        q = new_array.requireNoNulls()  // Replace the old array with the new resized array
     }
 
-    // print whole array or Queue
+    // Print the whole queue
     fun printQueue() {
         q.forEach { s -> println(s) }
     }
@@ -83,7 +84,8 @@ fun main() {
 
     println("------------------------------")
     queue.printQueue()
+
     queue.pop()
+
     queue.printQueue()
 }
-
